@@ -1,51 +1,83 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-6 py-24" style="background-image: url('/bg-hero.jpg'); background-size: cover; background-position: center 30%;">
-  <!-- Overlay: leve no topo para a arte respirar, escurece gradualmente para o texto -->
-  <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(13,15,26,0.30) 0%, rgba(13,15,26,0.50) 45%, rgba(13,15,26,0.92) 100%);"></div>
-  <div class="relative z-10 max-w-3xl mx-auto">
-    <!-- Eyebrow -->
-    <div class="flex items-center justify-center gap-3 mb-8">
-      <div class="w-12 h-px bg-gold/50"></div>
-      <span class="font-heading text-gold text-xs tracking-[0.3em] uppercase">Final Fantasy XIV</span>
-      <div class="w-12 h-px bg-gold/50"></div>
-    </div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-6 py-24 overflow-hidden" style="background-image: url('/bg-hero.jpg'); background-size: cover; background-position: center 30%;">
 
-    <!-- Title -->
-    <h1 class="font-heading text-5xl md:text-7xl font-bold text-snow leading-tight mb-6">
-      Guia de<br /><span class="text-gold">Raids</span>
-    </h1>
+  <!-- CRT scanlines + vignette sobre a imagem -->
+  <div class="absolute inset-0 pointer-events-none" style="
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.18) 0px,
+        rgba(0,0,0,0.18) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+    z-index: 1;
+  "></div>
+  <!-- Vignette nas bordas -->
+  <div class="absolute inset-0 pointer-events-none" style="
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.65) 100%);
+    z-index: 1;
+  "></div>
+  <!-- Gradient base escurecendo para baixo -->
+  <div class="absolute inset-0 pointer-events-none" style="
+    background: linear-gradient(to bottom, rgba(13,15,26,0.25) 0%, rgba(13,15,26,0.45) 50%, rgba(13,15,26,0.90) 100%);
+    z-index: 1;
+  "></div>
 
-    <!-- Divider -->
-    <div class="section-divider max-w-xs mx-auto mb-8"></div>
+  <!-- Caixa do texto principal -->
+  <div class="relative max-w-3xl mx-auto" style="z-index: 2;">
+    <div style="
+      background: rgba(13,15,26,0.62);
+      border: 1px solid rgba(201,168,76,0.20);
+      border-radius: 1.25rem;
+      padding: 2.5rem 2rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(201,168,76,0.08);
+    ">
+      <!-- Eyebrow -->
+      <div class="flex items-center justify-center gap-3 mb-8">
+        <div class="w-12 h-px bg-gold/50"></div>
+        <span class="font-heading text-gold text-xs tracking-[0.3em] uppercase">Final Fantasy XIV</span>
+        <div class="w-12 h-px bg-gold/50"></div>
+      </div>
 
-    <!-- Subtitle -->
-    <p class="text-ash text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-      Seja você um <span class="text-snow font-medium">aventureiro que nunca pisou em um raid</span> ou
-      um veterano voltando ao jogo após uma pausa — este guia cobre tudo que você precisa saber
-      antes de entrar na party.
-    </p>
+      <!-- Title -->
+      <h1 class="font-heading text-5xl md:text-7xl font-bold text-snow leading-tight mb-6">
+        Guia de<br /><span class="text-gold">Raids</span>
+      </h1>
 
-    <!-- CTA buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="#tipos"
-        class="px-8 py-3 bg-gold text-surface font-semibold text-sm tracking-wider rounded hover:bg-gold-light transition-colors duration-200"
-      >
-        Começar o Guia
-      </a>
-      <a
-        href="#terminologia"
-        class="px-8 py-3 border border-gold/50 text-gold font-semibold text-sm tracking-wider rounded hover:bg-gold/10 hover:border-gold transition-colors duration-200"
-      >
-        Ver Terminologia
-      </a>
+      <!-- Divider -->
+      <div class="section-divider max-w-xs mx-auto mb-8"></div>
+
+      <!-- Subtitle -->
+      <p class="text-ash text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+        Seja você um <span class="text-snow font-medium">aventureiro que nunca pisou em um raid</span> ou
+        um veterano voltando ao jogo após uma pausa — este guia cobre tudo que você precisa saber
+        antes de entrar na party.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#tipos"
+          class="px-8 py-3 bg-gold text-surface font-semibold text-sm tracking-wider rounded hover:bg-gold-light transition-colors duration-200"
+        >
+          Começar o Guia
+        </a>
+        <a
+          href="#terminologia"
+          class="px-8 py-3 border border-gold/50 text-gold font-semibold text-sm tracking-wider rounded hover:bg-gold/10 hover:border-gold transition-colors duration-200"
+        >
+          Ver Terminologia
+        </a>
+      </div>
     </div>
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ash/40 animate-bounce z-10" aria-hidden="true">
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ash/40 animate-bounce" style="z-index: 2;" aria-hidden="true">
     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
     </svg>
