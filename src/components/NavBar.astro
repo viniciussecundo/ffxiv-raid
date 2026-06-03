@@ -1,0 +1,63 @@
+---
+const links = [
+  { href: '#tipos', label: 'Tipos' },
+  { href: '#composicao', label: 'Composição' },
+  { href: '#terminologia', label: 'Terminologia' },
+  { href: '#girias', label: 'Gírias' },
+  { href: '#mecanicas', label: 'Mecânicas' },
+  { href: '#dicas', label: 'Dicas' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-rim">
+  <!-- CSS-only mobile toggle: input must come before the mobile menu for `peer` to work -->
+  <input type="checkbox" id="nav-toggle" class="peer sr-only" />
+
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+      <a
+        href="#"
+        class="font-heading text-gold font-bold tracking-widest text-base hover:text-gold-light transition-colors"
+      >
+        FFXIV RAIDS
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Navegação principal">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class="text-sm text-ash hover:text-gold transition-colors font-medium"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Mobile hamburger label -->
+      <label
+        for="nav-toggle"
+        class="md:hidden cursor-pointer text-ash hover:text-gold transition-colors p-1"
+        aria-label="Abrir menu"
+      >
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+        </svg>
+      </label>
+    </div>
+  </div>
+
+  <!-- Mobile menu: shown when checkbox is checked -->
+  <div class="peer-checked:block hidden md:hidden border-t border-rim bg-layer">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1" aria-label="Menu móvel">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class="text-sm text-ash hover:text-gold transition-colors font-medium py-2 border-b border-rim/50 last:border-0"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

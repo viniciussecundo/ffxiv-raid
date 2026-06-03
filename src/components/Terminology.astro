@@ -1,0 +1,132 @@
+---
+const terms = [
+  {
+    term: 'Tankbuster',
+    abbr: 'TB',
+    def: 'Habilidade que causa dano massivo em um único alvo — geralmente o tank com aggro. Requer cooldown defensivo do tank ou mitigação do healer. Ignorar = morte quase certa.',
+  },
+  {
+    term: 'Raidwide',
+    abbr: 'RW',
+    def: 'Dano em área que atinge todos os 8 jogadores simultaneamente. Healers precisam estar prontos com heals de grupo. Tanks e DPS usam mit para reduzir o dano.',
+  },
+  {
+    term: 'Stack',
+    abbr: 'SK',
+    def: 'Um marcador indica que um ataque pesado vai cair em um ponto. Todos (ou metade) devem se agrupar ali para dividir e reduzir o dano por cabeça.',
+  },
+  {
+    term: 'Spread',
+    abbr: 'SP',
+    def: 'AoEs individuais em vários jogadores ao mesmo tempo. Cada um deve ir para uma posição separada para não sobrepor as áreas e causar dano nos aliados.',
+  },
+  {
+    term: 'Tether',
+    abbr: 'TT',
+    def: 'Linha de energia conectando dois elementos (jogador-jogador ou boss-jogador). Dependendo da mecânica: aproximar-se dissolve ou maximiza o efeito; afastar-se quebra a corrente.',
+  },
+  {
+    term: 'Tower',
+    abbr: 'TW',
+    def: 'Área no chão que precisa ser "soaked" (absorvida). Se ninguém estiver dentro quando a Tower ativar, ela explode causando dano massivo no grupo ou wipe.',
+  },
+  {
+    term: 'Puddle',
+    abbr: 'PD',
+    def: 'AoE circular persistente no chão — deve ser depositada em local seguro e depois evitada. Ficar em cima causa dano contínuo ou debuffs severos.',
+  },
+  {
+    term: 'Cleave',
+    abbr: 'CL',
+    def: 'Ataque em área frontal ou lateral do boss. Tanks ficam na frente recebendo as cleaves; DPS ficam ao lado ou atrás para evitar ser pego.',
+  },
+  {
+    term: 'Enrage',
+    abbr: 'EN',
+    def: 'Timer do encontro. Se o boss não morrer a tempo, usa um ataque fatal. Hard Enrage = morte instantânea. Soft Enrage = a luta vai ficando impossível de curar.',
+  },
+  {
+    term: 'Wipe',
+    abbr: 'WP',
+    def: 'Todos os 8 jogadores morreram. O grupo reseta o encontro e começa novamente. Em Savage/Ultimate, geralmente volta ao início da fase.',
+  },
+  {
+    term: 'Pull',
+    abbr: 'PL',
+    def: 'Iniciar o combate. O tank usa habilidade de aggro para "puxar" o boss e marcar o começo da luta. Também usado como substantivo: "essa pull foi boa".',
+  },
+  {
+    term: 'Prog',
+    abbr: 'PR',
+    def: 'Progression — sessão de aprendizado. No prog, wipar é esperado e necessário. O objetivo é avançar uma mecânica por vez até dominar a luta inteira.',
+  },
+  {
+    term: 'Clear',
+    abbr: 'CR',
+    def: 'Completar o encontro com sucesso. "First clear" = primeira vez. "Clear semanal" = completar para garantir o loot da semana (lockout).',
+  },
+  {
+    term: 'Farm',
+    abbr: 'FM',
+    def: 'Repetir um encontro já dominado para coletar loot sistematicamente. No farm, o objetivo é eficiência — clears rápidos e limpos.',
+  },
+  {
+    term: 'Limit Break',
+    abbr: 'LB',
+    def: 'Habilidade especial coletiva que carrega ao longo da luta. LB3 de Healer revive toda a party. LB3 de Tank cria escudo de sobrevivência. LB3 de DPS causa dano enorme. Usado em momentos críticos.',
+  },
+  {
+    term: 'Vuln Stack',
+    abbr: 'VS',
+    def: 'Debuff acumulável que aumenta o dano recebido. Morrer ou errar mecânicas aplica stacks. Com muitos stacks, fica impossível sobreviver a qualquer dano.',
+  },
+  {
+    term: 'Positional',
+    abbr: 'POS',
+    def: 'Habilidade de melee DPS que causa mais dano de posições específicas: flanco ou traseiro do boss. Mecânicas de movimento dificultam o uso de positionals.',
+  },
+  {
+    term: 'Mitigation / Mit',
+    abbr: 'MIT',
+    def: 'Cooldowns de redução de dano. Pessoais (Rampart, Nebula) e de grupo (Reprisal, Feint, Addle, Troubadour). Coordenar mits cobre os raidwides mais pesados.',
+  },
+  {
+    term: 'Provoke',
+    abbr: 'PROV',
+    def: 'Habilidade de Tank que transfere o aggro imediatamente. Usada para Tank Swap — o OT assume o boss do MT para limpar debuffs de tankbuster duplos.',
+  },
+  {
+    term: 'Sprint',
+    abbr: 'SPR',
+    def: 'Habilidade comum a todos os jobs que aumenta a velocidade de movimento. Muito útil para resolver mecânicas que exigem deslocamento rápido por grandes distâncias.',
+  },
+];
+---
+
+<section id="terminologia" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.3em] uppercase mb-3">Seção 03</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-snow mb-4">Terminologia Geral</h2>
+      <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
+      <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
+        Vocabulário essencial que você vai ouvir em qualquer raid, do Normal ao Ultimate.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {terms.map(({ term, abbr, def }) => (
+        <div class="flex gap-4 bg-card border border-rim rounded-xl p-5 hover:border-gold/30 transition-colors">
+          <div class="w-1 rounded-full bg-gold flex-shrink-0 self-stretch"></div>
+          <div>
+            <div class="flex items-baseline gap-2 mb-1.5">
+              <dt class="font-heading font-semibold text-gold text-sm">{term}</dt>
+              <span class="text-ash text-xs opacity-50 font-mono">{abbr}</span>
+            </div>
+            <dd class="text-ash text-sm leading-relaxed">{def}</dd>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

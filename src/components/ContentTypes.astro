@@ -1,0 +1,85 @@
+---
+const types = [
+  {
+    name: 'Normal',
+    badge: 'Iniciante',
+    badgeClass: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/10',
+    difficulty: 1,
+    description:
+      'Ponto de entrada para raids. Mecânicas simplificadas, sem requisito de gear avançado. Ideal para aprender a estrutura básica dos encontros e a linguagem do jogo.',
+    detail: 'Disponível após completar a quest principal. Loot semanal de baixa prioridade.',
+  },
+  {
+    name: 'Extreme',
+    badge: 'Intermediário',
+    badgeClass: 'text-yellow-400 border-yellow-400/30 bg-yellow-400/10',
+    difficulty: 2,
+    description:
+      'Versão difícil dos bosses de história (Trials). Mecânicas mais exigentes com janelas claras de punição. Bom treino antes de entrar em Savage.',
+    detail: 'Drops de mounts exclusivos e equipamentos de Tomestone. Boa pedida para quem quer desafio sem Savage.',
+  },
+  {
+    name: 'Savage',
+    badge: 'Avançado',
+    badgeClass: 'text-orange-400 border-orange-400/30 bg-orange-400/10',
+    difficulty: 3,
+    description:
+      'O conteúdo end-game principal. Mecânicas complexas que punem erros severamente. Exige prog dedicado, coordenação e boa execução de todos os 8 membros.',
+    detail: 'Melhor gear do jogo. Lockout semanal. Onde acontecem as World Progress races.',
+  },
+  {
+    name: 'Criterion',
+    badge: 'Variante',
+    badgeClass: 'text-violet-400 border-violet-400/30 bg-violet-400/10',
+    difficulty: 2,
+    description:
+      'Dungeons para 4 jogadores com mecânicas de raid. O modo Savage Criterion exige zero mortes do começo ao fim — execução absolutamente perfeita.',
+    detail: 'Drops de mounts e cosméticos exclusivos. Formato único, ainda relativamente novo no jogo.',
+  },
+  {
+    name: 'Ultimate',
+    badge: 'Extremo',
+    badgeClass: 'text-red-400 border-red-400/30 bg-red-400/10',
+    difficulty: 4,
+    description:
+      'O conteúdo mais difícil do jogo. Múltiplas fases com mecânicas completas. A maioria dos grupos leva meses de prog para completar. Sem loot de power.',
+    detail: 'Apenas títulos únicos e armas cosméticas. Prestígio máximo da comunidade.',
+  },
+];
+---
+
+<section id="tipos" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.3em] uppercase mb-3">Seção 01</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-snow mb-4">Tipos de Conteúdo</h2>
+      <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
+      <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
+        Cada categoria tem sua curva de dificuldade, cultura e recompensas. Entender onde você está é o primeiro passo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {types.map(type => (
+        <div class="bg-card border border-rim rounded-xl p-6 hover:border-gold/40 transition-colors flex flex-col gap-4">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-heading text-xl font-bold text-gold">{type.name}</h3>
+            <span class={`text-xs font-semibold px-2 py-1 rounded border flex-shrink-0 ${type.badgeClass}`}>
+              {type.badge}
+            </span>
+          </div>
+
+          <!-- Difficulty pips -->
+          <div class="flex gap-1.5" aria-label={`Dificuldade ${type.difficulty} de 4`}>
+            {Array.from({ length: 4 }, (_, i) => (
+              <div class={`w-2 h-2 rounded-full ${i < type.difficulty ? 'bg-gold' : 'bg-rim'}`} />
+            ))}
+          </div>
+
+          <p class="text-snow text-sm leading-relaxed flex-1">{type.description}</p>
+          <p class="text-ash text-xs leading-relaxed border-t border-rim pt-4">{type.detail}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,119 @@
+---
+const roles = [
+  {
+    slot: 'MT',
+    name: 'Main Tank',
+    icon: '🛡️',
+    accent: 'text-sky-400 border-sky-500/40 bg-sky-500/10',
+    description:
+      'Segura o aggro principal do boss. Fica na frente, de costas para o grupo para direcionar cleaves. Absorve tankbusters e usa cooldowns defensivos no timing certo.',
+    jobs: ['PLD', 'WAR', 'DRK', 'GNB'],
+  },
+  {
+    slot: 'OT',
+    name: 'Off Tank',
+    icon: '🛡️',
+    accent: 'text-sky-400 border-sky-500/40 bg-sky-500/10',
+    description:
+      'Tanka adds (inimigos secundários), cobre Tank Swaps quando o boss aplica debuffs no MT via Provoke, e contribui com mitigation de grupo.',
+    jobs: ['PLD', 'WAR', 'DRK', 'GNB'],
+  },
+  {
+    slot: 'H1',
+    name: 'Pure Healer',
+    icon: '✨',
+    accent: 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10',
+    description:
+      'Foco em curas diretas e reativas. Traz Raise/Resurrection para ressuscitar aliados. Cobre os picos de dano que os shields do H2 não contêm.',
+    jobs: ['WHM', 'AST'],
+  },
+  {
+    slot: 'H2',
+    name: 'Barrier Healer',
+    icon: '🌿',
+    accent: 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10',
+    description:
+      'Especialista em prevenção — aplica shields antes de raidwides pesados, reduzindo o volume de cura necessário e a pressão sobre o H1.',
+    jobs: ['SCH', 'SGE'],
+  },
+  {
+    slot: 'D1',
+    name: 'Melee DPS',
+    icon: '⚔️',
+    accent: 'text-rose-400 border-rose-500/40 bg-rose-500/10',
+    description:
+      'DPS corpo-a-corpo. Habilidades causam mais dano de posições específicas (flanco ou traseiro). Deve manter uptime mesmo durante mecânicas.',
+    jobs: ['MNK', 'DRG', 'NIN', 'SAM', 'RPR', 'VPR'],
+  },
+  {
+    slot: 'D2',
+    name: 'Melee DPS',
+    icon: '⚔️',
+    accent: 'text-rose-400 border-rose-500/40 bg-rose-500/10',
+    description:
+      'Segundo slot melee. Ninja traz Trick Attack (buff de grupo). SAM tem burst altíssimo sem utility. VPR e RPR são versáteis em mecânicas de movimento.',
+    jobs: ['SAM', 'NIN', 'MNK', 'RPR', 'VPR'],
+  },
+  {
+    slot: 'D3',
+    name: 'Physical Ranged',
+    icon: '🏹',
+    accent: 'text-amber-400 border-amber-500/40 bg-amber-500/10',
+    description:
+      'DPS à distância física. Pode se mover livremente sem penalidade de DPS. Traz mitigation de grupo: Troubadour (BRD), Tactician (MCH), Shield Samba (DNC).',
+    jobs: ['BRD', 'MCH', 'DNC'],
+  },
+  {
+    slot: 'D4',
+    name: 'Magical Ranged',
+    icon: '🔮',
+    accent: 'text-violet-400 border-violet-500/40 bg-violet-500/10',
+    description:
+      'DPS mágico à distância. Alto burst e AoE. Cast times tornam mecânicas de interrupção mais punitivas — gerenciar Swiftcast/Surecast é essencial.',
+    jobs: ['BLM', 'SMN', 'RDM', 'PCT'],
+  },
+];
+---
+
+<section id="composicao" class="py-20 px-6 bg-layer">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.3em] uppercase mb-3">Seção 02</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-snow mb-4">Composição do Grupo</h2>
+      <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
+      <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
+        Todo raid no FFXIV tem exatamente 8 jogadores: 2 Tanks, 2 Healers e 4 DPS. Cada slot tem responsabilidades distintas.
+      </p>
+    </div>
+
+    <!-- Visual party grid -->
+    <div class="grid grid-cols-4 sm:grid-cols-8 gap-2 mb-12 max-w-2xl mx-auto">
+      {roles.map(role => (
+        <div class={`flex flex-col items-center gap-1 p-3 rounded-lg border ${role.accent} text-center`}>
+          <span class="text-xl" aria-hidden="true">{role.icon}</span>
+          <span class="font-heading font-bold text-xs">{role.slot}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Detail cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {roles.map(role => (
+        <div class="bg-card border border-rim rounded-xl p-5 hover:border-gold/30 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <span class={`font-heading font-bold text-sm px-2.5 py-1 rounded border ${role.accent}`}>
+              {role.slot}
+            </span>
+            <span class="text-snow font-semibold text-sm">{role.name}</span>
+          </div>
+          <p class="text-ash text-sm leading-relaxed mb-4">{role.description}</p>
+          <div class="flex flex-wrap gap-1.5">
+            {role.jobs.map(job => (
+              <span class="text-xs text-ash bg-surface border border-rim rounded px-2 py-0.5">{job}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

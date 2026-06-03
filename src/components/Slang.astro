@@ -1,0 +1,161 @@
+---
+const groups = [
+  {
+    category: 'Status & Reação',
+    items: [
+      {
+        slang: 'GG / GG EZ',
+        meaning: '"Good Game". Dito após um clear — pode ser comemoração séria ou ironia quando a luta foi sofrida.',
+      },
+      {
+        slang: 'WS / WP',
+        meaning: '"Well Survived / Well Played". Elogio após alguém sobreviver a uma mecânica difícil ou executar bem.',
+      },
+      {
+        slang: 'RIP',
+        meaning: 'Morreu. "Tank RIP" = tank morreu. Também figurativo: "nosso DPS RIP" = desempenho de DPS foi ruim.',
+      },
+      {
+        slang: 'Pog / Poggers',
+        meaning: 'Surpresa ou hype positivo. Herdado da cultura de streaming/Twitch.',
+      },
+    ],
+  },
+  {
+    category: 'Comunicação na Party',
+    items: [
+      {
+        slang: '"Tá claro?" / "Ready?"',
+        meaning: 'Confirmar se todos entenderam a estratégia e estão prontos para o próximo pull.',
+      },
+      {
+        slang: '"Segura o pull"',
+        meaning: 'Não inicie o combate ainda. Alguém está aplicando Tincture, não está em posição ou o healer não está pronto.',
+      },
+      {
+        slang: '"Macro?"',
+        meaning: 'Pedido para o líder postar o macro de posicionamento no chat antes de começar.',
+      },
+      {
+        slang: '"??" / "???"',
+        meaning: 'Confusão total após uma mecânica inesperada. Não é ofensa — é reação humana ao caos de uma nova mecânica.',
+      },
+    ],
+  },
+  {
+    category: 'Meta & Estratégia',
+    items: [
+      {
+        slang: 'Cheesing',
+        meaning: 'Usar estratégia não convencional — skips de mecânica, exploits ou composições específicas — para facilitar um encontro.',
+      },
+      {
+        slang: 'Body check',
+        meaning: 'Mecânica que mata instantaneamente quem não executar corretamente. Intencionalmente punitivo — sem chance de recover.',
+      },
+      {
+        slang: 'BiS',
+        meaning: '"Best in Slot". A combinação ideal de equipamentos para maximizar seu DPS/HPS no patch atual. Geralmente definido em thebalanceffxiv.com.',
+      },
+      {
+        slang: 'Cookie cutter',
+        meaning: 'A build e rotação padrão amplamente validada pela comunidade. Ponto de partida confiável para qualquer jogador.',
+      },
+    ],
+  },
+  {
+    category: 'Progressão & Grupo',
+    items: [
+      {
+        slang: 'Vai de prog',
+        meaning: 'Entrar no raid para aprender mecânicas, sem expectativa de clear. O foco é avançar uma mecânica por vez.',
+      },
+      {
+        slang: 'Static',
+        meaning: 'Grupo fixo de 8 com dias e horários definidos. Mais consistente que PF — requer comprometimento de todos.',
+      },
+      {
+        slang: 'Sprout',
+        meaning: 'Jogador novo. O ícone de broto (⚘) aparece no nome até ~300h de jogo e após retornar de longa pausa.',
+      },
+      {
+        slang: 'Deathwall',
+        meaning: 'As bordas da arena. Cair ou ser jogado para fora = morte instantânea, independente do HP atual.',
+      },
+    ],
+  },
+  {
+    category: 'Desempenho',
+    items: [
+      {
+        slang: 'Uptime',
+        meaning: 'Tempo ativo causando dano. "Perder uptime" = ficar sem atacar durante mecânicas. A diferença entre DPS bom e excelente.',
+      },
+      {
+        slang: 'Burst window / Janela de 2min',
+        meaning: 'Janela de ~15-20s onde buffs de toda a party se alinham a cada 2 minutos. Momento de maior pico de dano coletivo.',
+      },
+      {
+        slang: 'Resolve',
+        meaning: 'Executar corretamente uma mecânica. "A party resolveu o P8S" = passou aquela fase sem wipar.',
+      },
+      {
+        slang: 'Parse / Log',
+        meaning: 'Análise de desempenho via FFLogs.com. "Green parse" = acima da média. "Purple" e "orange" = excelente.',
+      },
+    ],
+  },
+  {
+    category: 'Informações Úteis',
+    items: [
+      {
+        slang: 'Party Finder (PF)',
+        meaning: 'Ferramenta in-game (Social → Party Finder) para encontrar grupos. Leia sempre a descrição: "Prog P3", "Farm", "Clear".',
+      },
+      {
+        slang: 'Alliance Raid',
+        meaning: 'Conteúdo para 24 jogadores em 3 parties de 8. Mecânicas mais simples, visual épico. Ótimo ponto de entrada.',
+      },
+      {
+        slang: 'Tincture / Pot',
+        meaning: 'Poção de atributo que aumenta seu stat principal por 30s. Usada no burst de 2 minutos para maximizar DPS.',
+      },
+      {
+        slang: 'Lockout semanal',
+        meaning: 'Cada boss de Savage pode dropar loot apenas uma vez por semana por jogador. Reseta toda terça-feira.',
+      },
+    ],
+  },
+];
+---
+
+<section id="girias" class="py-20 px-6 bg-layer">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.3em] uppercase mb-3">Seção 04</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-snow mb-4">Gírias e Comunicação</h2>
+      <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
+      <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
+        A comunidade de raids tem seu próprio vocabulário. Entender o que as pessoas estão dizendo faz toda a diferença.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {groups.map(group => (
+        <div>
+          <h3 class="font-heading text-gold text-xs tracking-[0.2em] uppercase mb-4 pb-2 border-b border-rim">
+            {group.category}
+          </h3>
+          <div class="space-y-3">
+            {group.items.map(({ slang, meaning }) => (
+              <div class="bg-card border border-rim rounded-xl p-4 hover:border-gold/30 transition-colors">
+                <p class="font-mono text-gold-light text-sm font-medium mb-1">"{slang}"</p>
+                <p class="text-ash text-sm leading-relaxed">{meaning}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
