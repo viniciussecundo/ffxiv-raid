@@ -200,9 +200,9 @@ const mechanics = [
     name: 'Gaze / Look Away',
     icon: '👁️',
     accent: 'border-pink-400/40 bg-pink-400/5 text-pink-400',
-    desc: 'O boss usa uma habilidade visual. Olhar na direção do boss (ou de um ponto específico) durante o efeito causa debuff severo: Fear, Petrify ou morte instantânea.',
-    visual: 'Ícone de olho no HUD. Linha de visão conectando o boss a cada jogador.',
-    tip: 'Vire o personagem de costas antes do cast terminar. No teclado: segure a tecla de movimento para trás enquanto o boss casteia.',
+    desc: 'O boss usa uma habilidade visual. Olhar para o boss (ou para um ponto específico na arena) durante o efeito causa debuff severo: Fear, Petrify ou morte instantânea. Atenção: alguns gazes afetam quem olha para um ponto fixo no chão — não necessariamente o boss. Leia o nome da habilidade no castbar para identificar a origem.',
+    visual: 'Ícone de olho no HUD. Linha de visão do boss ou de orbs/marcadores específicos na arena.',
+    tip: 'Vire o personagem de costas antes do cast terminar. No teclado: segure a tecla de movimento para trás. Observe se o gaze vem do boss ou de um ponto na arena.',
     diagram: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <circle cx="100" cy="100" r="90" fill="#0d1020" stroke="#2a2e45" stroke-width="1.5"/>
       <circle cx="100" cy="100" r="85" fill="none" stroke="#1e2540" stroke-width="0.5" stroke-dasharray="4,4"/>
@@ -288,6 +288,81 @@ const mechanics = [
     </svg>`,
   },
   {
+    id: 'exaflare',
+    name: 'Exaflare',
+    icon: '🔥',
+    accent: 'border-orange-500/40 bg-orange-500/5 text-orange-400',
+    desc: 'Explosões em linha que atravessam a arena em sequência, cobrindo colunas inteiras. Cada linha explode uma após a outra em progressão — ficar parado no primeiro ponto seguro é fatal porque a próxima sequência cobre exatamente onde você está.',
+    visual: 'Linhas de fogo que avançam em paralelo. O padrão indica a direção e velocidade de progressão.',
+    tip: 'A estratégia é se mover para a "sombra" deixada por uma explosão já resolvida — o lugar onde acabou de explodir é seguro para a próxima wave.',
+    diagram: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" fill="#0d1020" stroke="#2a2e45" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="85" fill="none" stroke="#1e2540" stroke-width="0.5" stroke-dasharray="4,4"/>
+      <!-- Exaflare columns moving right to left -->
+      <!-- Column 1 (already exploded - safe) -->
+      <rect x="15" y="15" width="30" height="170" rx="4" fill="#34d399" opacity="0.08" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="30" y="108" text-anchor="middle" font-size="7" fill="#34d399">✓</text>
+      <!-- Column 2 (exploding now - danger) -->
+      <rect x="55" y="15" width="30" height="170" rx="4" fill="#fb923c" opacity="0.25" stroke="#fb923c" stroke-width="1.5"/>
+      <text x="70" y="108" text-anchor="middle" font-size="10" fill="#fb923c">💥</text>
+      <!-- Column 3 (incoming - danger) -->
+      <rect x="95" y="15" width="30" height="170" rx="4" fill="#f87171" opacity="0.15" stroke="#f87171" stroke-width="1"/>
+      <!-- Column 4 (safe for now) -->
+      <rect x="135" y="15" width="40" height="170" rx="4" fill="#34d399" opacity="0.04" stroke="#2a2e45" stroke-width="0.5"/>
+      <!-- Arrow showing direction -->
+      <line x1="155" y1="60" x2="70" y2="60" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#exaarr)"/>
+      <text x="155" y="57" text-anchor="middle" font-size="6" fill="#fb923c">→</text>
+      <!-- Player moving to safe zone (already exploded) -->
+      <circle cx="30" cy="100" r="6" fill="#60a5fa"/>
+      <line x1="70" y1="100" x2="38" y2="100" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#playerarr)"/>
+      <defs>
+        <marker id="exaarr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#fb923c"/>
+        </marker>
+        <marker id="playerarr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#60a5fa"/>
+        </marker>
+      </defs>
+      <text x="100" y="195" text-anchor="middle" font-size="8" fill="#8a8fa8">Mova para onde já explodiu</text>
+    </svg>`,
+  },
+  {
+    id: 'enumeration',
+    name: 'Enumeration',
+    icon: '🔢',
+    accent: 'border-teal-400/40 bg-teal-400/5 text-teal-400',
+    desc: 'Um círculo aparece sobre um jogador com um número indicando exatamente quantas pessoas precisam estar dentro da área. Diferente de Towers, a área segue o jogador marcado — então todos precisam se mover para ele.',
+    visual: 'Círculo com número (geralmente 2, 3 ou 4). Pocas ou muitas pessoas = mecânica falha.',
+    tip: 'O jogador marcado não sai do lugar. Os outros correm para dentro do círculo até atingir o número exato — nem mais, nem menos.',
+    diagram: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" fill="#0d1020" stroke="#2a2e45" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="85" fill="none" stroke="#1e2540" stroke-width="0.5" stroke-dasharray="4,4"/>
+      <circle cx="100" cy="100" r="8" fill="#c9a84c" opacity="0.4"/>
+      <!-- Enumeration on MT (top) needing 3 players -->
+      <circle cx="100" cy="45" r="28" fill="#2dd4bf" opacity="0.1" stroke="#2dd4bf" stroke-width="1.5"/>
+      <text x="100" y="35" text-anchor="middle" font-size="11" fill="#2dd4bf" font-weight="bold">3</text>
+      <!-- Players inside the enum circle -->
+      <circle cx="100" cy="45" r="5" fill="#60a5fa"/>
+      <circle cx="87" cy="55" r="5" fill="#34d399"/>
+      <circle cx="113" cy="55" r="5" fill="#f87171"/>
+      <!-- Players moving in (arrows) -->
+      <line x1="150" y1="100" x2="118" y2="60" stroke="#2dd4bf" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#enumarr)"/>
+      <circle cx="150" cy="100" r="5" fill="#fbbf24"/>
+      <!-- Fail example (4th person too close) -->
+      <circle cx="100" cy="155" r="28" fill="#f87171" opacity="0.08" stroke="#f87171" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="100" y="145" text-anchor="middle" font-size="11" fill="#f87171" font-weight="bold">2</text>
+      <text x="100" y="175" text-anchor="middle" font-size="7" fill="#f87171">✕ incompleto</text>
+      <circle cx="95" cy="158" r="5" fill="#60a5fa"/>
+      <circle cx="108" cy="158" r="5" fill="#34d399"/>
+      <defs>
+        <marker id="enumarr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#2dd4bf"/>
+        </marker>
+      </defs>
+      <text x="100" y="195" text-anchor="middle" font-size="8" fill="#8a8fa8">Número exato — nem mais, nem menos</text>
+    </svg>`,
+  },
+  {
     id: 'tether',
     name: 'Tether / Corrente',
     icon: '🔗',
@@ -331,6 +406,15 @@ const mechanics = [
       <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
       <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
         Todo raid recombina as mesmas mecânicas fundamentais de formas criativas. Clique em qualquer card para ver o diagrama.
+      </p>
+    </div>
+
+    <!-- Savage combo note -->
+    <div class="mb-10 border border-gold/20 rounded-xl px-6 py-4 bg-gold/5 flex gap-4 items-start max-w-3xl mx-auto">
+      <span class="text-gold text-xl flex-shrink-0">⚠️</span>
+      <p class="text-ash text-sm leading-relaxed">
+        <span class="text-snow font-semibold">Em Savage e Ultimate, essas mecânicas raramente aparecem isoladas.</span>
+        {' '}O desafio real é resolver 2 ou 3 simultâneas — ex: um Stack que acontece durante um Spread, dentro de uma fase de Towers, enquanto um Tether precisa ser posicionado. Aprender cada mecânica individualmente é o pré-requisito para entender como elas se combinam.
       </p>
     </div>
 
