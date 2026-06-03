@@ -1,8 +1,9 @@
 ---
 ---
 
-<section id="hero" class="hero-gradient relative min-h-screen flex items-center justify-center text-center px-6 py-24">
-  <div class="relative max-w-3xl mx-auto">
+<section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-6 py-24" style="background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=1920&q=80'); background-size: cover; background-position: center;">
+  <div class="absolute inset-0 bg-surface/85 hero-gradient-overlay"></div>
+  <div class="relative z-10 max-w-3xl mx-auto">
     <!-- Eyebrow -->
     <div class="flex items-center justify-center gap-3 mb-8">
       <div class="w-12 h-px bg-gold/50"></div>
@@ -43,7 +44,7 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ash/40 animate-bounce" aria-hidden="true">
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ash/40 animate-bounce z-10" aria-hidden="true">
     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
     </svg>

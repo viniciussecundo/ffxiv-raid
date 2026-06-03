@@ -47,12 +47,12 @@ const roles = [
   },
   {
     slot: 'D2',
-    name: 'Melee DPS',
-    icon: '⚔️',
+    name: 'DPS Flex',
+    icon: '🔀',
     accent: 'text-rose-400 border-rose-500/40 bg-rose-500/10',
     description:
-      'Segundo slot melee. Ninja traz Trick Attack (buff de grupo). SAM tem burst altíssimo sem utility. VPR e RPR são versáteis em mecânicas de movimento.',
-    jobs: ['SAM', 'NIN', 'MNK', 'RPR', 'VPR'],
+      'Slot flexível — pode ser Melee, Physical Ranged ou Magical Ranged, dependendo da composição desejada. A única regra é não duplicar jobs já presentes na party (ex: dois SAM). Permite adaptar o grupo para mecânicas, utility ou preferência dos jogadores.',
+    jobs: ['SAM', 'NIN', 'MNK', 'RPR', 'VPR', 'BRD', 'MCH', 'DNC', 'BLM', 'SMN', 'RDM', 'PCT'],
   },
   {
     slot: 'D3',
@@ -82,7 +82,7 @@ const roles = [
       <h2 class="font-heading text-3xl md:text-4xl font-bold text-snow mb-4">Composição do Grupo</h2>
       <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
       <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
-        Todo raid no FFXIV tem exatamente 8 jogadores: 2 Tanks, 2 Healers e 4 DPS. Cada slot tem responsabilidades distintas.
+        Todo raid no FFXIV tem exatamente 8 jogadores: 2 Tanks, 2 Healers e 4 DPS. O slot D2 é flex — qualquer tipo de DPS, sem repetir jobs.
       </p>
     </div>
 
