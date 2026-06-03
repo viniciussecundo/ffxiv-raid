@@ -38,12 +38,12 @@ const roles = [
   },
   {
     slot: 'D1',
-    name: 'Melee DPS',
-    icon: '⚔️',
+    name: 'DPS Flex',
+    icon: '🔀',
     accent: 'text-rose-400 border-rose-500/40 bg-rose-500/10',
     description:
-      'DPS corpo-a-corpo. Habilidades causam mais dano de posições específicas (flanco ou traseiro). Deve manter uptime mesmo durante mecânicas.',
-    jobs: ['MNK', 'DRG', 'NIN', 'SAM', 'RPR', 'VPR'],
+      'Slot flexível — pode ser Melee, Physical Ranged ou Magical Ranged. Na prática, o primeiro slot DPS costuma ser Melee para maximizar raid buffs (ex: Trick Attack do NIN, Brotherhood do MNK), mas não há restrição de papel fixo.',
+    jobs: ['MNK', 'DRG', 'NIN', 'SAM', 'RPR', 'VPR', 'BRD', 'MCH', 'DNC', 'BLM', 'SMN', 'RDM', 'PCT'],
   },
   {
     slot: 'D2',
@@ -114,6 +114,32 @@ const roles = [
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- Raid Buffs callout -->
+    <div class="mt-10 border border-gold/20 rounded-2xl p-8 bg-gold/5">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="font-heading text-gold text-xs tracking-[0.3em] uppercase">Por que a composição importa</span>
+        <div class="flex-1 h-px bg-gold/20"></div>
+      </div>
+      <p class="text-ash text-sm leading-relaxed mb-4">
+        Além do papel, cada job traz <span class="text-snow font-medium">raid buffs</span> — habilidades que aumentam o dano de toda a party por uma janela curta. A composição ideal alinha esses buffs para criar picos de dano coletivo na janela de 2 minutos.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+        <div class="bg-card border border-rim rounded-lg px-3 py-2">
+          <p class="text-gold-light font-heading font-semibold mb-1">Melee</p>
+          <p class="text-ash">NIN → Mug/Trick Attack (dano+)<br/>MNK → Brotherhood (dano físico+)<br/>DRG → Battle Litany (crit+)</p>
+        </div>
+        <div class="bg-card border border-rim rounded-lg px-3 py-2">
+          <p class="text-gold-light font-heading font-semibold mb-1">Physical Ranged</p>
+          <p class="text-ash">BRD → Battle Voice (DH+)<br/>DNC → Devilment (crit/DH+)<br/>MCH → Wildfire (burst fixo)</p>
+        </div>
+        <div class="bg-card border border-rim rounded-lg px-3 py-2">
+          <p class="text-gold-light font-heading font-semibold mb-1">Magical Ranged</p>
+          <p class="text-ash">RDM → Embolden (dano mágico+)<br/>SMN → Searing Light (dano+)<br/>PCT → Radiant Finale (dano+)</p>
+        </div>
+      </div>
+      <p class="text-ash/60 text-xs mt-4">A meta muda a cada patch. Consulte thebalanceffxiv.com para a composição atual recomendada.</p>
     </div>
   </div>
 </section>
