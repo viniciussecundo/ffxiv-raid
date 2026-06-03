@@ -1,0 +1,109 @@
+---
+const tips = [
+  {
+    n: '01',
+    title: 'Conheça sua Rotação',
+    icon: '🔄',
+    text: 'Antes de Savage, domine sua rotação de burst de olhos fechados. Visite thebalanceffxiv.com para guias por job. Pratique no "Stone, Sky, Sea" (tela de seleção de conteúdo) até atingir o DPS check. Entrar sabendo sua rotação elimina uma camada enorme de stress.',
+  },
+  {
+    n: '02',
+    title: 'Mantenha Uptime',
+    icon: '⚡',
+    text: 'A diferença entre DPS bom e excelente quase sempre é o uptime. Durante mecânicas, use habilidades instant (oGCDs, procs). Casters gerenciam Swiftcast/Surecast estrategicamente. Aprenda a se mover sem quebrar o GCD — cada global perdido é dano irreversível.',
+  },
+  {
+    n: '03',
+    title: 'Use o Party Finder Corretamente',
+    icon: '📋',
+    text: 'Acesse Social → Party Finder. Filtre por conteúdo e leia a descrição: "P3 prog" = progressão na fase 3, "Farm" = luta já conhecida. Respeite o propósito listado. Ir para um grupo de Farm sem saber a luta, ou para um de Prog esperando clear rápido, prejudica a experiência de todos.',
+  },
+  {
+    n: '04',
+    title: 'Leia o Macro Antes do Pull',
+    icon: '📄',
+    text: 'O líder sempre posta um macro com posicionamento antes de começar. N=Norte, S=Sul, L=Leste, O=Oeste, NO/NE/SO/SE=diagonais. Saiba seu spot de memória. Hesitar durante a mecânica porque não sabe onde ir é um dos erros mais comuns de quem ignora o macro.',
+  },
+  {
+    n: '05',
+    title: 'Coordene Mitigação',
+    icon: '🛡️',
+    text: 'Tanks e Healers têm cooldowns de mit de grupo: Reprisal, Feint (DPS melee), Addle (caster), Troubadour/Tactician/Samba (ranged). Esses CDs cobrem raidwides pesados. Distribua antes: "eu cubro o primeiro RW, você cobre o segundo". XIVAnalysis.com audita seu uso de mitigation.',
+  },
+  {
+    n: '06',
+    title: 'Comunicação Respeitosa',
+    icon: '💬',
+    text: 'Um simples "my bad" após errar vai longe. Não é necessário longa explicação. Se precisar de pausa, avise antes. Se não entendeu a estratégia, pergunte antes do pull — não durante. A comunidade FFXIV é notoriamente receptiva com quem chega com boa vontade.',
+  },
+  {
+    n: '07',
+    title: 'Assista Guides Antes de Entrar',
+    icon: '📹',
+    text: 'Antes de um Savage novo, assista ao guide em vídeo. Procure o nome do boss + "guide" ou "raidplan" no YouTube. Entender as mecânicas antes de vê-las in-game elimina o "o que foi isso?" e acelera o prog do grupo inteiro. Nenhum grupo gosta de explicar mecânicas básicas durante o pull.',
+  },
+  {
+    n: '08',
+    title: 'Ferramentas Úteis da Comunidade',
+    icon: '🛠️',
+    text: 'XIVLauncher + Dalamud: plugins como Splatoon (AoE visual) e ACT Timeline (timers do boss). FFLogs.com: analise pulls e compare desempenho. Raidplan.io: diagramas de posicionamento. The Balance (Discord): guias de job atualizados. XIVAnalysis.com: revisão de mits e GCDs perdidos.',
+  },
+];
+---
+
+<section id="dicas" class="py-20 px-6 bg-layer">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.3em] uppercase mb-3">Seção 06</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-snow mb-4">Dicas para Iniciantes</h2>
+      <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
+      <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
+        Conselhos que a maioria dos veteranos deseja ter recebido quando começaram em raids.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {tips.map(tip => (
+        <div class="bg-card border border-rim rounded-xl p-5 hover:border-gold/30 transition-colors flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="w-10 h-10 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center">
+              <span class="font-heading text-gold text-xs font-bold">{tip.n}</span>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span aria-hidden="true">{tip.icon}</span>
+              <h3 class="font-heading text-snow text-sm font-semibold">{tip.title}</h3>
+            </div>
+            <p class="text-ash text-sm leading-relaxed">{tip.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Final quote/CTA -->
+    <div class="mt-16 border border-gold/25 rounded-2xl p-10 text-center bg-gold/5">
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <div class="w-8 h-px bg-gold/50"></div>
+        <span class="font-heading text-gold text-xs tracking-[0.3em] uppercase">Lembre-se</span>
+        <div class="w-8 h-px bg-gold/50"></div>
+      </div>
+      <h3 class="font-heading text-2xl md:text-3xl font-bold text-snow mb-4">
+        Todo Clear começa com um Wipe.
+      </h3>
+      <p class="text-ash max-w-lg mx-auto text-sm leading-relaxed mb-6">
+        Não existe substituto para a experiência. Abra o Party Finder, entre num grupo de prog
+        com a mesma mentalidade que a sua, e aprenda fazendo. Cada wipe é uma repetição rumo ao clear.
+      </p>
+      <p class="font-heading text-gold font-semibold tracking-wide">Good luck, and good pulls. ◆</p>
+    </div>
+  </div>
+</section>
+
+<footer class="py-8 px-6 border-t border-rim text-center">
+  <p class="text-ash text-xs">
+    Guia não-oficial da comunidade FFXIV ·
+    Conteúdo baseado em <span class="text-gold">Dawntrail (Patch 7.x)</span> ·
+    Final Fantasy XIV é propriedade da Square Enix Co., Ltd.
+  </p>
+</footer>

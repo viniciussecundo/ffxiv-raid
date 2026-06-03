@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Hero from '../components/Hero.astro';
+import ContentTypes from '../components/ContentTypes.astro';
+import PartyComp from '../components/PartyComp.astro';
+import Terminology from '../components/Terminology.astro';
+import Slang from '../components/Slang.astro';
+import CommonMechanics from '../components/CommonMechanics.astro';
+import BeginnerTips from '../components/BeginnerTips.astro';
+---
+
+<Layout
+  title="Guia de Raids — FFXIV"
+  description="Guia completo de terminologia, mecânicas, composição de grupo e dicas para raids no Final Fantasy XIV. Para novos e veteranos."
+>
+  <NavBar />
+  <main>
+    <Hero />
+    <ContentTypes />
+    <PartyComp />
+    <Terminology />
+    <Slang />
+    <CommonMechanics />
+    <BeginnerTips />
+  </main>
+</Layout>

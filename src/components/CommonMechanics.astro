@@ -1,0 +1,116 @@
+---
+const mechanics = [
+  {
+    name: 'Stack Marker',
+    icon: '⬇️',
+    accent: 'border-yellow-400/40 bg-yellow-400/5 text-yellow-400',
+    desc: 'Um marcador (geralmente ⬇) aparece sobre um jogador. Toda a party ou metade (Light Party) deve se aproximar daquele ponto para dividir o dano do ataque.',
+    visual: 'Stack de 8 = dano dividido por 8  |  Stack de 4 (LP) = dano dividido por 4',
+    tip: 'Se o marcador estiver em você: não corra, fique parado. Deixe os outros chegarem até você.',
+  },
+  {
+    name: 'Spread / Flare',
+    icon: '💥',
+    accent: 'border-orange-400/40 bg-orange-400/5 text-orange-400',
+    desc: 'AoEs individuais aparecem em vários jogadores ao mesmo tempo. Cada pessoa deve ir para uma posição separada para não sobrepor os círculos nos aliados.',
+    visual: 'Círculos crescendo individualmente ao redor de cada jogador marcado',
+    tip: 'Pré-posicione antes do boss terminar o cast. Tenha seu "spot" decidido com o grupo antes da luta.',
+  },
+  {
+    name: 'Knockback',
+    icon: '💨',
+    accent: 'border-sky-400/40 bg-sky-400/5 text-sky-400',
+    desc: 'O boss empurra todos os jogadores em uma direção. Sem antecipação, você pode ser arremessado para fora da arena (deathwall) ou para cima de uma AoE.',
+    visual: 'Pulso de energia irradiando do boss ou de um ponto fixo. Direção indicada por seta.',
+    tip: 'Use Arm\'s Length (físico) ou Surecast (mágico) para negar o knockback. Ou posicione-se de costas para uma parede.',
+  },
+  {
+    name: 'Light Party Stack',
+    icon: '👥',
+    accent: 'border-violet-400/40 bg-violet-400/5 text-violet-400',
+    desc: 'Dois marcadores aparecem dividindo a party em dois grupos de 4 (LP1 e LP2). Cada grupo vai a um lado e absorve um ataque diferente simultaneamente.',
+    visual: 'LP1 = MT + H1 + D1 + D3  |  LP2 = OT + H2 + D2 + D4  (padrão mais comum)',
+    tip: 'Confirme a divisão com o grupo antes da luta. Ir para o lado errado causa dano duplo ou mecânica adicional.',
+  },
+  {
+    name: 'Donut AoE',
+    icon: '🍩',
+    accent: 'border-red-400/40 bg-red-400/5 text-red-400',
+    desc: 'Zona de dano em formato de anel. O centro, próximo ao boss, é seguro. A área ao redor é fatal. Obriga toda a party a ficar dentro do hitbox do boss.',
+    visual: 'Anel expandindo do boss para as bordas. Centro = seguro. Faixa ao redor = dano.',
+    tip: 'Fique debaixo ou muito próximo ao boss. Se hesitar e estiver longe, corra em direção a ele — não fuja.',
+  },
+  {
+    name: 'Point-blank / Tornado',
+    icon: '🌀',
+    accent: 'border-cyan-400/40 bg-cyan-400/5 text-cyan-400',
+    desc: 'O oposto do Donut. O AoE parte do boss para fora — ficar perto é fatal. Toda a party deve correr para longe rapidamente quando ver o cast.',
+    visual: 'Pulso circular crescendo do boss para as bordas da arena. Perto = perigo.',
+    tip: 'Casters usam Swiftcast/Surecast antes do cast terminar para garantir mobilidade sem perder DPS.',
+  },
+  {
+    name: 'Gaze / Look Away',
+    icon: '👁️',
+    accent: 'border-pink-400/40 bg-pink-400/5 text-pink-400',
+    desc: 'O boss usa uma habilidade visual. Olhar na direção do boss (ou de um ponto específico) durante o efeito causa debuff severo: Fear, Petrify ou morte instantânea.',
+    visual: 'Ícone de olho no HUD. Linha de visão conectando o boss a cada jogador.',
+    tip: 'Vire o personagem de costas antes do cast terminar. No teclado: segure a tecla de movimento para trás enquanto o boss casteia.',
+  },
+  {
+    name: 'Tower',
+    icon: '⬡',
+    accent: 'border-emerald-400/40 bg-emerald-400/5 text-emerald-400',
+    desc: 'Círculos aparecem no chão que devem ser "soaked" (absorvidos) por um número específico de jogadores. Tower vazia = explosão que causa wipe ou dano massivo na party.',
+    visual: 'Círculo no chão com número indicando quantas pessoas são necessárias para absorver.',
+    tip: 'Cada Tower deve ter exatamente o número indicado. Nem mais (dano extra por pessoa), nem menos (explosão).',
+  },
+  {
+    name: 'Protean',
+    icon: '⭐',
+    accent: 'border-amber-400/40 bg-amber-400/5 text-amber-400',
+    desc: 'O boss ataca em múltiplas direções ao mesmo tempo, em formato de estrela ou leque. Cada jogador precisa estar em uma direção diferente para não sobrepor os cones.',
+    visual: '8 cones saindo do boss em direções opostas, um por jogador. Cada um ocupa sua "fatia".',
+    tip: 'Posicione-se em sua direção designada antes do cast terminar. Ficar no mesmo cone que outro jogador causa dano duplo.',
+  },
+  {
+    name: 'Tether / Corrente',
+    icon: '🔗',
+    accent: 'border-rose-400/40 bg-rose-400/5 text-rose-400',
+    desc: 'Uma linha visível conecta dois jogadores ou um jogador ao boss. Dependendo da mecânica: pode exigir que você se aproxime ou se afaste do elemento conectado.',
+    visual: 'Linha colorida conectando dois pontos. A linha pode mudar de cor indicando "segura" ou "perigosa".',
+    tip: 'Observe a cor do tether: vermelho = perigoso/afaste-se; azul/branco = seguro/aproxime-se. Varia por encontro.',
+  },
+];
+---
+
+<section id="mecanicas" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.3em] uppercase mb-3">Seção 05</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-snow mb-4">Mecânicas Comuns</h2>
+      <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
+      <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
+        Todo raid recombina as mesmas mecânicas fundamentais de formas criativas. Dominar cada uma é a base para qualquer conteúdo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {mechanics.map(m => (
+        <div class={`rounded-xl border p-6 ${m.accent} flex flex-col gap-3`}>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl" aria-hidden="true">{m.icon}</span>
+            <h3 class="font-heading text-base font-bold">{m.name}</h3>
+          </div>
+          <p class="text-snow text-sm leading-relaxed">{m.desc}</p>
+          <div class="bg-black/20 rounded-lg px-4 py-3 text-xs text-ash/80 font-mono">
+            {m.visual}
+          </div>
+          <div class="flex gap-2 items-start pt-1">
+            <span class="text-gold text-xs font-bold flex-shrink-0 font-heading">DICA</span>
+            <p class="text-snow/70 text-xs leading-relaxed">{m.tip}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
