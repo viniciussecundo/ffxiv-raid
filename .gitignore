@@ -7,5 +7,8 @@ dist/
 # Dependencies
 node_modules/
 
+# Lock file — generated per-platform; causes native binding errors cross-env
+package-lock.json
+
 # Logs
 npm-debug.log*
