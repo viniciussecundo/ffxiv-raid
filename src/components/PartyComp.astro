@@ -1,4 +1,12 @@
 ---
+const JOB_SLUG: Record<string, string> = {
+  PLD: 'paladin', WAR: 'warrior', DRK: 'darkknight', GNB: 'gunbreaker',
+  WHM: 'whitemage', AST: 'astrologian', SCH: 'scholar', SGE: 'sage',
+  MNK: 'monk', DRG: 'dragoon', NIN: 'ninja', SAM: 'samurai', RPR: 'reaper', VPR: 'viper',
+  BRD: 'bard', MCH: 'machinist', DNC: 'dancer',
+  BLM: 'blackmage', SMN: 'summoner', RDM: 'redmage', PCT: 'pictomancer',
+};
+
 const roles = [
   {
     slot: 'MT',
@@ -107,9 +115,21 @@ const roles = [
             <span class="text-snow font-semibold text-sm">{role.name}</span>
           </div>
           <p class="text-ash text-sm leading-relaxed mb-4">{role.description}</p>
-          <div class="flex flex-wrap gap-1.5">
+          <div class="flex flex-wrap gap-2">
             {role.jobs.map(job => (
-              <span class="text-xs text-ash bg-surface border border-rim rounded px-2 py-0.5">{job}</span>
+              <div class="group relative flex flex-col items-center gap-0.5 cursor-default">
+                <img
+                  src={`https://xivapi.com/cj/1/${JOB_SLUG[job]}.png`}
+                  alt={job}
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                  class="w-8 h-8 rounded opacity-75 group-hover:opacity-100 transition-opacity"
+                />
+                <span class="text-[10px] leading-none text-ash group-hover:text-snow transition-colors font-heading tracking-wide">
+                  {job}
+                </span>
+              </div>
             ))}
           </div>
         </div>
