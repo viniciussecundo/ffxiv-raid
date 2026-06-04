@@ -264,15 +264,15 @@ const mechanics = [
     tip: 'Posicione-se em sua direção designada antes do cast terminar. Ficar no mesmo cone que outro jogador causa dano duplo.',
     diagram: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <circle cx="100" cy="100" r="90" fill="#0d1020" stroke="#2a2e45" stroke-width="1.5"/>
-      <!-- 8 protean cones (pizza slices) -->
-      <path d="M100,100 L100,15 A85,85 0 0,1 160,40 Z" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.5"/>
-      <path d="M100,100 L160,40 A85,85 0 0,1 185,100 Z" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.5"/>
-      <path d="M100,100 L185,100 A85,85 0 0,1 160,160 Z" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.5"/>
-      <path d="M100,100 L160,160 A85,85 0 0,1 100,185 Z" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.5"/>
-      <path d="M100,100 L100,185 A85,85 0 0,1 40,160 Z" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.5"/>
-      <path d="M100,100 L40,160 A85,85 0 0,1 15,100 Z" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.5"/>
-      <path d="M100,100 L15,100 A85,85 0 0,1 40,40 Z" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.5"/>
-      <path d="M100,100 L40,40 A85,85 0 0,1 100,15 Z" fill="#fbbf24" opacity="0.12" stroke="#fbbf24" stroke-width="0.5"/>
+      <!-- 8 directional lines from center to each player -->
+      <line x1="100" y1="100" x2="100" y2="30"  stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
+      <line x1="100" y1="100" x2="150" y2="51"  stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
+      <line x1="100" y1="100" x2="170" y2="100" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
+      <line x1="100" y1="100" x2="150" y2="149" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
+      <line x1="100" y1="100" x2="100" y2="170" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
+      <line x1="100" y1="100" x2="51"  y2="149" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
+      <line x1="100" y1="100" x2="30"  y2="100" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
+      <line x1="100" y1="100" x2="51"  y2="51"  stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
       <!-- Boss -->
       <circle cx="100" cy="100" r="8" fill="#c9a84c" opacity="0.5"/>
       <!-- Players at edges of each cone -->
