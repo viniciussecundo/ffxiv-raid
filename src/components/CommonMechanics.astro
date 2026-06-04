@@ -455,7 +455,11 @@ const mechanics = [
         </div>
         <button data-close class="modal-close" aria-label="Fechar">✕</button>
       </div>
-      <div class="flex justify-center bg-black/20 rounded-xl p-4">
+      <div
+        class="flex justify-center bg-black/20 rounded-xl p-4"
+        role="img"
+        aria-label={`Diagrama de arena: ${m.name}`}
+      >
         <Fragment set:html={m.diagram} />
       </div>
       <p class="text-snow/80 text-sm leading-relaxed">{m.desc}</p>
@@ -474,7 +478,11 @@ const mechanics = [
   document.querySelectorAll<HTMLButtonElement>('[data-open]').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.open;
-      if (id) (document.getElementById(id) as HTMLDialogElement)?.showModal();
+      const dialog = id ? (document.getElementById(id) as HTMLDialogElement) : null;
+      if (dialog) {
+        dialog.showModal();
+        dialog.querySelector<HTMLButtonElement>('[data-close]')?.focus();
+      }
     });
   });
 
@@ -485,6 +493,14 @@ const mechanics = [
   });
 
   document.querySelectorAll<HTMLDialogElement>('[data-mechanic-modal]').forEach(dialog => {
+    let trigger: HTMLElement | null = null;
+
+    document.querySelectorAll<HTMLButtonElement>(`[data-open="${dialog.id}"]`).forEach(btn => {
+      btn.addEventListener('click', () => { trigger = btn; });
+    });
+
+    dialog.addEventListener('close', () => { trigger?.focus(); trigger = null; });
+
     dialog.addEventListener('click', e => {
       const r = dialog.getBoundingClientRect();
       if (

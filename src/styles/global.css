@@ -104,6 +104,13 @@ dialog[data-mechanic-modal] .modal-close:hover {
   color: #c9a84c;
 }
 
+/* Focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #c9a84c;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
 /* Reveal animation on scroll */
 .reveal {
   opacity: 0;
