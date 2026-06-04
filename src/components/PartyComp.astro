@@ -1,10 +1,26 @@
 ---
-const JOB_SLUG: Record<string, string> = {
-  PLD: 'paladin', WAR: 'warrior', DRK: 'darkknight', GNB: 'gunbreaker',
-  WHM: 'whitemage', AST: 'astrologian', SCH: 'scholar', SGE: 'sage',
-  MNK: 'monk', DRG: 'dragoon', NIN: 'ninja', SAM: 'samurai', RPR: 'reaper', VPR: 'viper',
-  BRD: 'bard', MCH: 'machinist', DNC: 'dancer',
-  BLM: 'blackmage', SMN: 'summoner', RDM: 'redmage', PCT: 'pictomancer',
+const JOB_ICON_URL: Record<string, string> = {
+  PLD: 'https://xivapi.com/cj/1/paladin.png',
+  WAR: 'https://xivapi.com/cj/1/warrior.png',
+  DRK: 'https://xivapi.com/cj/1/darkknight.png',
+  GNB: 'https://xivapi.com/cj/1/gunbreaker.png',
+  WHM: 'https://xivapi.com/cj/1/whitemage.png',
+  AST: 'https://xivapi.com/cj/1/astrologian.png',
+  SCH: 'https://xivapi.com/cj/1/scholar.png',
+  MNK: 'https://xivapi.com/cj/1/monk.png',
+  DRG: 'https://xivapi.com/cj/1/dragoon.png',
+  NIN: 'https://xivapi.com/cj/1/ninja.png',
+  SAM: 'https://xivapi.com/cj/1/samurai.png',
+  BRD: 'https://xivapi.com/cj/1/bard.png',
+  MCH: 'https://xivapi.com/cj/1/machinist.png',
+  DNC: 'https://xivapi.com/cj/1/dancer.png',
+  BLM: 'https://xivapi.com/cj/1/blackmage.png',
+  SMN: 'https://xivapi.com/cj/1/summoner.png',
+  RDM: 'https://xivapi.com/cj/1/redmage.png',
+  SGE: 'https://xivapi.com/i/062000/062138.png',
+  RPR: 'https://xivapi.com/i/062000/062139.png',
+  VPR: 'https://xivapi.com/i/062000/062141.png',
+  PCT: 'https://xivapi.com/i/062000/062142.png',
 };
 
 const roles = [
@@ -119,13 +135,20 @@ const roles = [
             {role.jobs.map(job => (
               <div class="group relative flex flex-col items-center gap-0.5 cursor-default">
                 <img
-                  src={`https://xivapi.com/cj/1/${JOB_SLUG[job]}.png`}
+                  src={JOB_ICON_URL[job]}
                   alt={job}
                   width="32"
                   height="32"
                   loading="lazy"
                   class="w-8 h-8 rounded opacity-75 group-hover:opacity-100 transition-opacity"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
                 />
+                <span
+                  style="display:none"
+                  class="w-8 h-8 rounded bg-surface border border-rim items-center justify-center text-[9px] font-heading text-ash font-bold"
+                >
+                  {job}
+                </span>
                 <span class="text-[10px] leading-none text-ash group-hover:text-snow transition-colors font-heading tracking-wide">
                   {job}
                 </span>
