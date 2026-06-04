@@ -10,8 +10,9 @@ const types = [
     description:
       'Ponto de entrada para raids. Mecânicas simplificadas, sem requisito de gear avançado. Ideal para aprender a estrutura básica dos encontros e a linguagem do jogo.',
     detail: 'Disponível após completar a quest principal. Loot semanal de baixa prioridade.',
-    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-60">
-      <polygon points="20,4 24,16 37,16 27,24 31,36 20,28 9,36 13,24 3,16 16,16" fill="#34d399" opacity="0.15" stroke="#34d399" stroke-width="1.5"/>
+    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-70">
+      <path d="M20 5L8 10v10c0 7 5.5 13 12 15 6.5-2 12-8 12-15V10L20 5z" fill="#34d399" opacity="0.15" stroke="#34d399" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M14 20l4 4 8-8" stroke="#34d399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>`,
   },
   {
@@ -24,24 +25,9 @@ const types = [
     description:
       'Versão difícil dos bosses de história (Trials). Mecânicas mais exigentes com janelas claras de punição. Bom treino antes de entrar em Savage.',
     detail: 'Drops de mounts exclusivos e equipamentos de Tomestone. Boa pedida para quem quer desafio sem Savage.',
-    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-60">
-      <path d="M22 4L10 22h10l-2 14 14-18H22L24 4z" fill="#facc15" opacity="0.15" stroke="#facc15" stroke-width="1.5" stroke-linejoin="round"/>
-    </svg>`,
-  },
-  {
-    name: 'Savage',
-    badge: 'Avançado',
-    badgeClass: 'text-orange-400 border-orange-400/30 bg-orange-400/10',
-    difficulty: 3,
-    image: '/tier-ultimate.jpg',
-    overlayColor: 'rgba(251,146,60,0.25)',
-    description:
-      'O conteúdo end-game principal. Mecânicas complexas que punem erros severamente. Exige prog dedicado, coordenação e boa execução de todos os 8 membros.',
-    detail: 'Melhor gear do jogo. Lockout semanal. Onde acontecem as World Progress races.',
-    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-60">
-      <line x1="8" y1="32" x2="32" y2="8" stroke="#fb923c" stroke-width="2" stroke-linecap="round"/>
-      <line x1="32" y1="32" x2="8" y2="8" stroke="#fb923c" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="20" cy="20" r="5" fill="#fb923c" opacity="0.2" stroke="#fb923c" stroke-width="1.5"/>
+    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-70">
+      <path d="M20 6c0 0-2 4-2 8 0 0-4-2-4-6 0 0-4 5-4 10a10 10 0 0 0 20 0c0-7-4-11-4-11 0 4-2 5-2 5s-4-3-4-6z" fill="#facc15" opacity="0.2" stroke="#facc15" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="20" cy="24" r="3" fill="#facc15" opacity="0.35" stroke="#facc15" stroke-width="1"/>
     </svg>`,
   },
   {
@@ -54,9 +40,33 @@ const types = [
     description:
       'Dungeons para 4 jogadores com mecânicas de raid. O modo Savage Criterion exige zero mortes do começo ao fim — execução absolutamente perfeita.',
     detail: 'Drops de mounts e cosméticos exclusivos. Formato único, ainda relativamente novo no jogo.',
-    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-60">
-      <polygon points="20,4 36,20 20,36 4,20" fill="#a78bfa" opacity="0.15" stroke="#a78bfa" stroke-width="1.5"/>
-      <polygon points="20,10 30,20 20,30 10,20" fill="#a78bfa" opacity="0.1" stroke="#a78bfa" stroke-width="1"/>
+    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-70">
+      <circle cx="13" cy="13" r="4.5" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1.5"/>
+      <circle cx="27" cy="13" r="4.5" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1.5"/>
+      <circle cx="13" cy="27" r="4.5" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1.5"/>
+      <circle cx="27" cy="27" r="4.5" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1.5"/>
+      <line x1="17.5" y1="13" x2="22.5" y2="13" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+      <line x1="17.5" y1="27" x2="22.5" y2="27" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+      <line x1="13" y1="17.5" x2="13" y2="22.5" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+      <line x1="27" y1="17.5" x2="27" y2="22.5" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+    </svg>`,
+  },
+  {
+    name: 'Savage',
+    badge: 'Avançado',
+    badgeClass: 'text-orange-400 border-orange-400/30 bg-orange-400/10',
+    difficulty: 3,
+    image: '/tier-ultimate.jpg',
+    overlayColor: 'rgba(251,146,60,0.25)',
+    description:
+      'O conteúdo end-game principal. Mecânicas complexas que punem erros severamente. Exige prog dedicado, coordenação e boa execução de todos os 8 membros.',
+    detail: 'Melhor gear do jogo. Lockout semanal. Onde acontecem as World Progress races.',
+    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-70">
+      <line x1="9" y1="9" x2="28" y2="28" stroke="#fb923c" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M7 9l4-1-1 4" stroke="#fb923c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="31" y1="9" x2="12" y2="28" stroke="#fb923c" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M33 9l-4-1 1 4" stroke="#fb923c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="20" cy="20" r="3.5" fill="#fb923c" opacity="0.25" stroke="#fb923c" stroke-width="1.5"/>
     </svg>`,
   },
   {
@@ -69,8 +79,11 @@ const types = [
     description:
       'O conteúdo mais difícil do jogo. Múltiplas fases com mecânicas completas. A maioria dos grupos leva meses de prog para completar. Sem loot de power.',
     detail: 'Apenas títulos únicos e armas cosméticas. Prestígio máximo da comunidade.',
-    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-60">
-      <path d="M20 4l2.5 9.5L32 9l-4.5 9 9.5 2.5-9.5 2.5 4.5 9-9.5-4.5L20 36l-2.5-9.5L8 31l4.5-9L3 19.5 12.5 17 8 8l9.5 4.5z" fill="#f87171" opacity="0.15" stroke="#f87171" stroke-width="1.5"/>
+    svgIcon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 opacity-70">
+      <path d="M6 31h28M6 31L9 17l6.5 5.5L20 9l4.5 13.5L31 17l3 14H6z" fill="#f87171" opacity="0.15" stroke="#f87171" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="20" cy="11" r="2" fill="#f87171" opacity="0.6"/>
+      <circle cx="10.5" cy="20" r="1.5" fill="#f87171" opacity="0.45"/>
+      <circle cx="29.5" cy="20" r="1.5" fill="#f87171" opacity="0.45"/>
     </svg>`,
   },
 ];
