@@ -264,18 +264,18 @@ const mechanics = [
     tip: 'Posicione-se em sua direção designada antes do cast terminar. Ficar no mesmo cone que outro jogador causa dano duplo.',
     diagram: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <circle cx="100" cy="100" r="90" fill="#0d1020" stroke="#2a2e45" stroke-width="1.5"/>
-      <!-- 8 directional lines from center to each player -->
-      <line x1="100" y1="100" x2="100" y2="30"  stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
-      <line x1="100" y1="100" x2="150" y2="51"  stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
-      <line x1="100" y1="100" x2="170" y2="100" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
-      <line x1="100" y1="100" x2="150" y2="149" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
-      <line x1="100" y1="100" x2="100" y2="170" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
-      <line x1="100" y1="100" x2="51"  y2="149" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
-      <line x1="100" y1="100" x2="30"  y2="100" stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
-      <line x1="100" y1="100" x2="51"  y2="51"  stroke="#fbbf24" stroke-width="1.5" opacity="0.35"/>
+      <!-- 8 protean cones (~40° each, 5° gap between) -->
+      <path d="M100,100 L71,20  A85,85 0 0,1 129,20  Z" fill="#fbbf24" opacity="0.22" stroke="#fbbf24" stroke-width="0.8"/>
+      <path d="M100,100 L136,23 A85,85 0 0,1 177,64  Z" fill="#fbbf24" opacity="0.22" stroke="#fbbf24" stroke-width="0.8"/>
+      <path d="M100,100 L180,71 A85,85 0 0,1 180,129 Z" fill="#fbbf24" opacity="0.22" stroke="#fbbf24" stroke-width="0.8"/>
+      <path d="M100,100 L177,136 A85,85 0 0,1 136,177 Z" fill="#fbbf24" opacity="0.22" stroke="#fbbf24" stroke-width="0.8"/>
+      <path d="M100,100 L129,180 A85,85 0 0,1 71,180  Z" fill="#fbbf24" opacity="0.22" stroke="#fbbf24" stroke-width="0.8"/>
+      <path d="M100,100 L64,177 A85,85 0 0,1 23,136  Z" fill="#fbbf24" opacity="0.22" stroke="#fbbf24" stroke-width="0.8"/>
+      <path d="M100,100 L20,129 A85,85 0 0,1 20,71   Z" fill="#fbbf24" opacity="0.22" stroke="#fbbf24" stroke-width="0.8"/>
+      <path d="M100,100 L23,64  A85,85 0 0,1 64,23   Z" fill="#fbbf24" opacity="0.22" stroke="#fbbf24" stroke-width="0.8"/>
       <!-- Boss -->
       <circle cx="100" cy="100" r="8" fill="#c9a84c" opacity="0.5"/>
-      <!-- Players at edges of each cone -->
+      <!-- Players at end of each cone -->
       <circle cx="100" cy="30" r="5" fill="#60a5fa"/>
       <circle cx="150" cy="51" r="5" fill="#34d399"/>
       <circle cx="170" cy="100" r="5" fill="#f87171"/>
