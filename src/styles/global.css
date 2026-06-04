@@ -50,13 +50,18 @@ section[id] {
 }
 
 dialog[data-mechanic-modal] {
+  position: fixed;
+  inset: 0;
+  margin: auto;
   background: #1e2235;
   border: 1px solid #2a2e45;
   border-radius: 1rem;
   color: #e8e8ec;
   padding: 0;
   max-width: min(90vw, 540px);
+  max-height: min(90vh, 700px);
   width: 100%;
+  overflow-y: auto;
 }
 
 dialog[data-mechanic-modal]::backdrop {
