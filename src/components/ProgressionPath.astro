@@ -1,0 +1,199 @@
+---
+const prereqs = [
+  {
+    icon: '📖',
+    title: 'Complete a História',
+    text: 'Os raids de end-game exigem a Main Story Quest (MSQ) concluída. Em Dawntrail, termine a quest principal antes de tentar desbloquear Savage ou Ultimate.',
+  },
+  {
+    icon: '⚔️',
+    title: 'Alcance o ilvl Mínimo',
+    text: 'Use Tomestone Gear — obtido em Alliance Raids, Daily Roulettes e Dungeons de leveling — para atingir o ilvl exigido. Para Savage, consulte o BiS em thebalanceffxiv.com.',
+  },
+  {
+    icon: '🎮',
+    title: 'Conheça Sua Rotação',
+    text: 'Domine o básico da sua rotação antes de entrar. Stone, Sky, Sea (menu de conteúdo in-game) é um modo de treino para verificar seu DPS sem pressão de grupo.',
+  },
+];
+
+const steps = [
+  {
+    num: '①',
+    name: 'Normal',
+    gearIn: 'Gear do MSQ',
+    commitment: 'Sem compromisso fixo',
+    reward: 'Aprende a estrutura dos raids sem punição severa',
+    accent: 'border-emerald-400 text-emerald-400',
+    badge: 'bg-emerald-400/10 border-emerald-400/30 text-emerald-400',
+  },
+  {
+    num: '②',
+    name: 'Extreme',
+    gearIn: 'Tomestone gear',
+    commitment: 'Algumas sessões',
+    reward: 'Mounts exclusivas e treino real de mecânicas',
+    accent: 'border-yellow-400 text-yellow-400',
+    badge: 'bg-yellow-400/10 border-yellow-400/30 text-yellow-400',
+  },
+  {
+    num: '③',
+    name: 'Savage',
+    gearIn: 'Tomestone + drops de Normal',
+    commitment: 'Semanas de prog',
+    reward: 'Melhor gear do patch com lockout semanal',
+    accent: 'border-orange-400 text-orange-400',
+    badge: 'bg-orange-400/10 border-orange-400/30 text-orange-400',
+  },
+  {
+    num: '④',
+    name: 'Criterion',
+    gearIn: 'Gear de Savage',
+    commitment: 'Flexível (4 jogadores)',
+    reward: 'Cosméticos e mounts únicos, formato diferente',
+    accent: 'border-violet-400 text-violet-400',
+    badge: 'bg-violet-400/10 border-violet-400/30 text-violet-400',
+  },
+  {
+    num: '⑤',
+    name: 'Ultimate',
+    gearIn: 'BiS do patch atual',
+    commitment: 'Meses de prog dedicado',
+    reward: 'Título único e arma cosmética — prestígio máximo',
+    accent: 'border-red-400 text-red-400',
+    badge: 'bg-red-400/10 border-red-400/30 text-red-400',
+  },
+];
+
+const jobRecs = [
+  {
+    role: 'DPS (mais indicado para começar)',
+    color: 'text-rose-400',
+    items: [
+      { jobs: 'Dragoon (DRG), Reaper (RPR)', note: 'Melee com rotação linear — boa curva de aprendizado.' },
+      { jobs: 'Bard (BRD), Dancer (DNC)', note: 'Ranged físico — sem penalidade de movimento, tolerante a erros de posição.' },
+      { jobs: 'Black Mage (BLM)', note: 'Caster avançado — cast times são muito punitivos em mecânicas. Deixe para depois.' },
+    ],
+  },
+  {
+    role: 'Healer',
+    color: 'text-emerald-400',
+    items: [
+      { jobs: 'White Mage (WHM)', note: 'Curas reativas diretas — mais intuitivo que Barrier Healers. Primeiro healer recomendado.' },
+      { jobs: 'Scholar (SCH) / Sage (SGE)', note: 'Especialistas em shields preventivos — requerem mais planejamento antecipado.' },
+    ],
+  },
+  {
+    role: 'Tank',
+    color: 'text-sky-400',
+    items: [
+      { jobs: 'Gunbreaker (GNB)', note: 'Rotação mais próxima de DPS entre os tanks — boa transição se você já joga melee.' },
+      { jobs: 'Warrior (WAR)', note: 'Self-sustain altíssimo, perdoa erros — bom para aprender o papel de tank.' },
+    ],
+  },
+];
+---
+
+<section id="progressao" class="py-20 px-6 bg-layer">
+  <div class="max-w-6xl mx-auto reveal">
+    <div class="text-center mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.3em] uppercase mb-3">Seção 02</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-snow mb-4">Como Começar em Raids</h2>
+      <div class="section-divider max-w-xs mx-auto mt-6 mb-6"></div>
+      <p class="text-ash max-w-xl mx-auto text-sm leading-relaxed">
+        Antes de entrar no Party Finder, você precisa de três coisas. Aqui está o caminho do zero até o Ultimate.
+      </p>
+    </div>
+
+    <!-- Pré-requisitos -->
+    <div class="mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.2em] uppercase mb-5 pb-2 border-b border-rim">
+        Pré-Requisitos
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {prereqs.map(p => (
+          <div class="bg-card border border-rim rounded-xl p-5 hover:border-gold/30 transition-colors flex gap-4">
+            <span class="text-2xl flex-shrink-0 mt-0.5" aria-hidden="true">{p.icon}</span>
+            <div>
+              <p class="font-heading text-snow text-sm font-semibold mb-2">{p.title}</p>
+              <p class="text-ash text-sm leading-relaxed">{p.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Caminho de progressão -->
+    <div class="mb-14">
+      <p class="font-heading text-gold text-xs tracking-[0.2em] uppercase mb-5 pb-2 border-b border-rim">
+        Caminho de Progressão
+      </p>
+
+      <!-- Desktop: horizontal flow -->
+      <div class="hidden md:flex items-stretch gap-0">
+        {steps.map((step, i) => (
+          <div class="flex items-stretch flex-1">
+            <div class={`flex-1 bg-card border border-rim rounded-xl p-4 flex flex-col gap-2 border-t-2 ${step.accent} hover:border-opacity-100 transition-colors`}>
+              <div class="flex items-center gap-2">
+                <span class={`font-heading font-bold text-base ${step.accent.split(' ')[1]}`}>{step.num}</span>
+                <span class={`text-xs font-semibold px-2 py-0.5 rounded border ${step.badge} font-heading`}>{step.name}</span>
+              </div>
+              <p class="text-ash text-xs"><span class="text-snow/70 font-medium">Gear:</span> {step.gearIn}</p>
+              <p class="text-ash text-xs"><span class="text-snow/70 font-medium">Tempo:</span> {step.commitment}</p>
+              <p class="text-ash text-xs leading-relaxed border-t border-rim/50 pt-2 mt-auto">{step.reward}</p>
+            </div>
+            {i < steps.length - 1 && (
+              <div class="flex items-center px-1 text-ash/30 text-xs flex-shrink-0">→</div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Mobile: vertical list -->
+      <div class="md:hidden space-y-3">
+        {steps.map((step, i) => (
+          <div class={`bg-card border border-rim rounded-xl p-4 flex gap-4 border-l-4 ${step.accent.split(' ')[0]}`}>
+            <div class="flex-shrink-0 flex flex-col items-center gap-1">
+              <span class={`font-heading font-bold text-lg ${step.accent.split(' ')[1]}`}>{step.num}</span>
+              {i < steps.length - 1 && <div class="w-px flex-1 bg-rim min-h-[1rem]"></div>}
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-2">
+                <span class={`text-xs font-semibold px-2 py-0.5 rounded border ${step.badge} font-heading`}>{step.name}</span>
+              </div>
+              <p class="text-ash text-xs mb-1"><span class="text-snow/70 font-medium">Gear:</span> {step.gearIn}</p>
+              <p class="text-ash text-xs mb-2"><span class="text-snow/70 font-medium">Tempo:</span> {step.commitment}</p>
+              <p class="text-ash text-xs leading-relaxed">{step.reward}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Qual job escolher -->
+    <div class="border border-gold/20 rounded-2xl p-8 bg-gold/5">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="font-heading text-gold text-xs tracking-[0.3em] uppercase">Qual Job Escolher para Começar?</span>
+        <div class="flex-1 h-px bg-gold/20"></div>
+      </div>
+      <p class="text-ash text-sm leading-relaxed mb-6">
+        Se você é novo em raids, <span class="text-snow font-medium">DPS é o papel mais indicado para começar</span> — você só precisa cuidar de si mesmo e focar em mecânicas. Healers e Tanks têm responsabilidades que aumentam o nível de stress no prog.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {jobRecs.map(group => (
+          <div>
+            <p class={`font-heading font-semibold text-xs mb-3 ${group.color}`}>{group.role}</p>
+            <ul class="space-y-2">
+              {group.items.map(item => (
+                <li class="text-xs">
+                  <span class="text-snow font-medium font-heading">{item.jobs}</span>
+                  <span class="text-ash"> — {item.note}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
