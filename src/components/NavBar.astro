@@ -10,7 +10,6 @@ const links = [
 ---
 
 <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-rim">
-  <!-- CSS-only mobile toggle: input must come before the mobile menu for `peer` to work -->
   <input type="checkbox" id="nav-toggle" class="peer sr-only" />
 
   <div class="max-w-6xl mx-auto px-6">
@@ -27,6 +26,7 @@ const links = [
         {links.map(link => (
           <a
             href={link.href}
+            data-nav-link
             class="text-sm text-ash hover:text-gold transition-colors font-medium"
           >
             {link.label}
@@ -40,19 +40,23 @@ const links = [
         class="md:hidden cursor-pointer text-ash hover:text-gold transition-colors p-1"
         aria-label="Abrir menu"
       >
-        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg id="icon-menu" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+        </svg>
+        <svg id="icon-close" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="hidden">
+          <path d="M6 6l12 12M18 6l-12 12" stroke-linecap="round" />
         </svg>
       </label>
     </div>
   </div>
 
-  <!-- Mobile menu: shown when checkbox is checked -->
+  <!-- Mobile menu -->
   <div class="peer-checked:block hidden md:hidden border-t border-rim bg-layer">
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1" aria-label="Menu móvel">
+    <nav id="mobile-nav" class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1" aria-label="Menu móvel">
       {links.map(link => (
         <a
           href={link.href}
+          data-nav-link
           class="text-sm text-ash hover:text-gold transition-colors font-medium py-2 border-b border-rim/50 last:border-0"
         >
           {link.label}
@@ -61,3 +65,43 @@ const links = [
     </nav>
   </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle') as HTMLInputElement;
+  const iconMenu = document.getElementById('icon-menu')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  toggle.addEventListener('change', () => {
+    iconMenu.classList.toggle('hidden', toggle.checked);
+    iconClose.classList.toggle('hidden', !toggle.checked);
+  });
+
+  document.querySelectorAll('#mobile-nav a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.checked = false;
+      iconMenu.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+
+  // Scroll-spy: highlight active section in nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+  const spy = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          link.removeAttribute('aria-current');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.setAttribute('aria-current', 'page');
+          }
+        });
+      });
+    },
+    { rootMargin: '-40% 0px -60% 0px' }
+  );
+
+  sections.forEach(s => spy.observe(s));
+</script>

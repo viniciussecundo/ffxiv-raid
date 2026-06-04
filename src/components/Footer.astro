@@ -1,0 +1,92 @@
+---
+const resources = [
+  {
+    category: 'Builds & Meta',
+    links: [
+      { label: 'The Balance FFXIV', url: 'https://www.thebalanceffxiv.com', desc: 'Guias de rotação e BiS por job' },
+      { label: 'Etro.gg', url: 'https://etro.gg', desc: 'Planejador de gear sets e stats' },
+    ],
+  },
+  {
+    category: 'Análise de Desempenho',
+    links: [
+      { label: 'FFLogs', url: 'https://www.fflogs.com', desc: 'Logs de raid e parse de DPS/HPS' },
+      { label: 'XIVAnalysis', url: 'https://xivanalysis.com', desc: 'Revisão de GCDs e mitigation' },
+    ],
+  },
+  {
+    category: 'Posicionamento & Comunidade',
+    links: [
+      { label: 'Raidplan.io', url: 'https://raidplan.io', desc: 'Diagramas de estratégia de raid' },
+      { label: 'r/ffxiv', url: 'https://www.reddit.com/r/ffxiv', desc: 'Comunidade e discussões gerais' },
+    ],
+  },
+];
+
+const navLinks = [
+  { href: '#tipos', label: 'Tipos' },
+  { href: '#composicao', label: 'Composição' },
+  { href: '#terminologia', label: 'Terminologia' },
+  { href: '#girias', label: 'Gírias' },
+  { href: '#mecanicas', label: 'Mecânicas' },
+  { href: '#dicas', label: 'Dicas' },
+];
+---
+
+<footer class="border-t border-rim bg-surface">
+  <div class="max-w-6xl mx-auto px-6 py-14">
+
+    <!-- Top row: logo + quick nav -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10 pb-10 border-b border-rim">
+      <a href="#" class="font-heading text-gold font-bold tracking-widest text-base hover:text-gold-light transition-colors">
+        FFXIV RAIDS
+      </a>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Navegação do rodapé">
+        {navLinks.map(link => (
+          <a href={link.href} class="text-xs text-ash hover:text-gold transition-colors font-medium">
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <!-- Resource links grid -->
+    <div class="mb-10">
+      <p class="font-heading text-gold text-xs tracking-[0.3em] uppercase mb-6">Recursos Úteis</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {resources.map(group => (
+          <div>
+            <p class="text-snow text-xs font-semibold font-heading mb-3">{group.category}</p>
+            <ul class="space-y-2">
+              {group.links.map(link => (
+                <li>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group flex flex-col gap-0.5"
+                  >
+                    <span class="text-ash text-sm group-hover:text-gold transition-colors font-medium">
+                      {link.label} ↗
+                    </span>
+                    <span class="text-ash/60 text-xs">{link.desc}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom copyright -->
+    <div class="border-t border-rim pt-8 text-center">
+      <p class="text-ash text-xs leading-relaxed">
+        Guia não-oficial da comunidade FFXIV ·
+        Conteúdo baseado em <span class="text-gold">Dawntrail (Patch 7.x)</span> ·
+        Final Fantasy XIV é propriedade da Square Enix Co., Ltd.
+      </p>
+    </div>
+
+  </div>
+</footer>
