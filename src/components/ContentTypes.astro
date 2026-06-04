@@ -89,7 +89,7 @@ const types = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {types.map(type => (
-        <div class="bg-card border border-rim rounded-xl overflow-hidden hover:border-gold/40 transition-colors flex flex-col">
+        <div class="group bg-card border border-rim rounded-xl overflow-hidden hover:border-gold/40 transition-colors flex flex-col">
           <!-- Banner de imagem -->
           <div class="relative h-[120px] overflow-hidden flex-shrink-0">
             <img
@@ -97,7 +97,7 @@ const types = [
               alt=""
               aria-hidden="true"
               loading="lazy"
-              class="w-full h-full object-cover object-center"
+              class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
             />
             <div class="absolute inset-0" style={`background: linear-gradient(135deg, ${type.overlayColor} 0%, rgba(0,0,0,0.45) 100%)`} />
             <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, #1e2235 100%)" />
