@@ -1,7 +1,13 @@
 ---
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-6 py-24 overflow-hidden" style="background-image: url('/bg-hero.jpg'); background-size: cover; background-position: center 30%;">
+<section id="hero" class="relative min-h-screen flex items-center justify-center text-center px-6 py-24 overflow-hidden">
+
+  <!-- Background image with WebP fallback -->
+  <picture class="absolute inset-0 w-full h-full" aria-hidden="true">
+    <source srcset="/bg-hero.webp" type="image/webp" />
+    <img src="/bg-hero.jpg" alt="" class="w-full h-full object-cover object-[center_30%]" fetchpriority="high" decoding="async" />
+  </picture>
 
   <!-- CRT scanlines + vignette sobre a imagem -->
   <div class="absolute inset-0 pointer-events-none" style="
